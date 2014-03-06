@@ -1,0 +1,15 @@
+#!/bin/bash
+exec 2>&1
+exec >>/var/log/all_start.log
+
+echo [`date`] start
+
+/usr/local/bin/start_background /usr/sbin/mysqld
+/usr/bin/redis-server /etc/redis/redis.conf
+/usr/sbin/sshd
+sleep 30
+/etc/init.d/gitlab start
+sleep 30
+/etc/init.d/nginx start
+
+exec sleep infinity

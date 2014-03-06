@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use POSIX ();
+$SIG{CHLD} = 'IGNORE';
+open STDIN,  "</dev/null";
+open STDOUT, ">/dev/null";
+open STDERR, ">/dev/null";
+fork and exit;
+POSIX::setsid;
+fork and exit;
+exec {$ARGV[0]} @ARGV;
