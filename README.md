@@ -4,10 +4,8 @@ Setup gitlab in just **one** container.
 
 ## usage
 
-    > git clone git://github.com/shoichikaji/docker-gitlab.git
-    > cd docker-gitlab
-    > docker build -t gitlab .
-    > docker run -d -p 10022:22 -p 8080:80 gitlab
+    > docker build -t skaji/gitlab git://github.com/shoichikaji/docker-gitlab.git
+    > docker run -d -p 10022:22 -p 8080:80 skaji/gitlab
 
 Then you can access gitlab via http://yourhost:8080.
 
